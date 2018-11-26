@@ -18,11 +18,7 @@ class PermissionServiceProvider extends ServiceProvider
             ], 'config');
 
             if (! class_exists('CreatePermissionTables')) {
-                $timestamp = date('Y_m_d_His', time());
-
-                $this->publishes([
-                    __DIR__.'/../database/migrations/create_permission_tables.php.stub' => $this->app->databasePath()."/migrations/{$timestamp}_create_permission_tables.php",
-                ], 'migrations');
+                $this->publishes([__DIR__.'/database/migrations' => database_path('migrations')], 'migrations');
             }
 
             if (app()->version() >= '5.5') {
