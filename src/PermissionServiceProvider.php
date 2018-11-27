@@ -18,7 +18,7 @@ class PermissionServiceProvider extends ServiceProvider
             ], 'config');
 
             if (! class_exists('CreatePermissionTables')) {
-                $this->publishes([__DIR__.'/database/migrations' => database_path('migrations')], 'migrations');
+                $this->publishes([__DIR__.'/../database/migrations' => database_path('migrations')], 'migrations');
             }
 
             if (app()->version() >= '5.5') {
